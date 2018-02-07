@@ -2,6 +2,8 @@ let countdown ;
 const timerDisplay = document.querySelector(".display_time-left");
 const endTime = document.querySelector('.display_time-end');
 const buttons = document.querySelectorAll('[data-time]');
+const pause = document.querySelector('.pause');
+const resume = document.querySelector('.resume');
 
 function timer(seconds) {
     // clear anny existing counter
@@ -12,8 +14,8 @@ function timer(seconds) {
     displayEndTime(then);
 
    countdown = setInterval(() => {
-        const secondsLeft = Math.round((then - Date.now()) / 1000);
-        if (secondsLeft < 0) {
+       const secondsLeft = Math.round((then - Date.now()) / 1000);
+       if (secondsLeft < 0) {
             clearInterval(countdown);
             return
         }
@@ -49,7 +51,25 @@ buttons.forEach(button => button.addEventListener('click', startTimer));
 document.userForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const mins = this.minutes.value;
-    console.log(mins);
     timer(mins * 60);
     this.reset(); // clear out the value
+});
+
+let paused = false;
+let time_left;
+
+pause.addEventListener('click', function (e) {
+    if(!paused) {
+        paused = true;
+        clearInterval(countdown); // stop the clock
+    }
+});
+
+resume.addEventListener('click', function (e) {
+    if(paused) {
+        paused = false;
+        time_left = secondsLeft;
+        displayTimeLeft(time_left);
+
+    }
 });

@@ -1,0 +1,78 @@
+html {
+    box-sizing: border-box;
+    background: linear-gradient(130deg, plum 0%, lightskyblue 48%, darkcyan 100%);
+    background-size: cover;
+    min-height: 100vh;
+}
+*, *:before,*:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    text-align: center;
+}
+
+.timer_button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.8rem;
+    color: white;
+}
+.display_time-left {
+    font-weight: 100;
+    color: white;
+    font-size: 10rem;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+    margin: 5px;
+}
+.timer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.timer_controls {
+    display: flex;
+}
+.timer_controls > * {
+    flex: 1;
+}
+.timer_controls form {
+    flex: 1;
+    display: flex;
+}
+.timer_controls input {
+    flex: 1;
+    border: 0;
+    padding: 2rem;
+    font-size: 1rem;
+}
+.timer_button:hover
+.timer_button:focus {
+    background: rgba(0, 0, 0, 0.1);
+    outline: 0;
+}
+.display {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.display_time-end {
+    font-size: 2rem;
+    color: white;
+    margin: 5px;
+}
+.pauseandresume {
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
